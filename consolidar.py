@@ -12,6 +12,16 @@ def leer(ruta):
         return list(csv.DictReader(f))
 
 
+def validar(filas):
+    """Devuelve una lista de avisos por cada celda vacía, con su número de fila en el CSV."""
+    avisos = []
+    for numero, fila in enumerate(filas, start=2):
+        for columna, valor in fila.items():
+            if valor is None or not valor.strip():
+                avisos.append(f"Fila {numero}: '{columna}' está vacía ({fila['servicio']}, {fila['mes']}, {fila['sede']})")
+    return avisos
+
+
 def consolidar(filas):
     totales = defaultdict(lambda: {"atenciones": 0, "oportunidad_dias": []})
     for fila in filas:
@@ -36,6 +46,13 @@ def escribir(resumen, ruta):
 
 
 if __name__ == "__main__":
-    resumen = consolidar(leer(ENTRADA))
+    filas = leer(ENTRADA)
+    avisos = validar(filas)
+    if avisos:
+        print("El CSV trae celdas vacías; corrígelas en el origen y vuelve a correr:")
+        for aviso in avisos:
+            print(" -", aviso)
+        raise SystemExit(1)
+    resumen = consolidar(filas)
     escribir(resumen, SALIDA)
     print(f"{len(resumen)} filas en {SALIDA}")
