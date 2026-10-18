@@ -1,0 +1,11 @@
+servicio,mes,sede,atenciones,oportunidad_dias
+Consulta externa,2026-07,Norte,412,6.5
+Consulta externa,2026-07,Sur,388,7.1
+Consulta externa,2026-08,Norte,430,6.2
+Consulta externa,2026-08,Sur,401,
+Laboratorio,2026-07,Norte,1250,1.2
+Laboratorio,2026-07,Sur,1102,1.4
+Laboratorio,2026-08,Norte,1318,1.1
+Laboratorio,2026-08,Sur,1176,1.3
+Imagenes,2026-07,Norte,215,4.8
+Imagenes,2026-08,Norte,228,5.0

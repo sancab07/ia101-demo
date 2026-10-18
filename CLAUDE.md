@@ -1,0 +1,3 @@
+- Los datos de `datos/` son inventados; nunca agregues datos reales.
+- `datos/` es de solo lectura; los resultados van en `salida/`.
+- Después de cualquier cambio, corre `python3 consolidar.py` y confirma que termina sin errores.
